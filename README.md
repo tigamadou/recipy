@@ -1,4 +1,4 @@
-# receiptit App
+# recipetly App
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
@@ -6,26 +6,26 @@
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
-![](https://github.com/tigamadou/receiptit/workflows/Linters/badge.svg)
+![](https://github.com/tigamadou/recipetly/workflows/Linters/badge.svg)
 
 
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
   
-  <h3 align="center">Receiptit APP</h3>
+  <h3 align="center">Recipetly</h3>
 
   <p align="center">
-    A simple front-end of an application that will help to organize and manage a receiptit
+    A simple front-end of an application thatfor browsing recipes
     <br />
     <a href="#about-the-project"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://iareceiptit.herokuapp.com/" target="_blank" >View Demo</a>
+    <a href="https://iarecipetly.herokuapp.com/" target="_blank" >View Demo</a>
     ·
-    <a href="https://github.com/tigamadou/receiptit/issues">Report Bug</a>
+    <a href="https://github.com/tigamadou/recipetly/issues">Report Bug</a>
     ·
-    <a href="https://github.com/tigamadou/receiptit/issues">Request Feature</a>
+    <a href="https://github.com/tigamadou/recipetly/issues">Request Feature</a>
   </p>
 </p>
 
@@ -81,12 +81,12 @@ npm install npm@latest -g
 1. Clone the repo
 
 ```sh
-git clone https://github.com/tigamadou/receiptit
+git clone https://github.com/tigamadou/recipetly
 ```
 
 2. Browser to the cloned folder
 ```sh
-cd receiptit
+cd recipetly
 ```
 
 3. Install NPM packages
@@ -130,7 +130,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 - Linkedin: [Amadou IBRAHIM](https://www.linkedin.com/in/amadou-ibrahim/)
 
 
-Project Link: [https://github.com/tigamadou/receiptit](https://github.com/tigamadou/receiptit)
+Project Link: [https://github.com/tigamadou/recipetly](https://github.com/tigamadou/recipetly)
 
 
 
@@ -148,16 +148,16 @@ Project Link: [https://github.com/tigamadou/receiptit](https://github.com/tigama
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/tigamadou/receiptit.svg?style=flat-square
-[contributors-url]: https://github.com/tigamadou/receiptit/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/tigamadou/receiptit.svg?style=flat-square
-[forks-url]: https://github.com/tigamadou/receiptit/network/members
-[stars-shield]: https://img.shields.io/github/stars/tigamadou/receiptit.svg?style=flat-square
-[stars-url]: https://github.com/tigamadou/receiptit/stargazers
-[issues-shield]: https://img.shields.io/github/issues/tigamadou/receiptit.svg?style=flat-square
-[issues-url]: https://github.com/tigamadou/receiptit/issues
-[license-shield]: https://img.shields.io/github/license/tigamadou/receiptit.svg?style=flat-square
-[license-url]: https://github.com/tigamadou/receiptit/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/tigamadou/recipetly.svg?style=flat-square
+[contributors-url]: https://github.com/tigamadou/recipetly/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/tigamadou/recipetly.svg?style=flat-square
+[forks-url]: https://github.com/tigamadou/recipetly/network/members
+[stars-shield]: https://img.shields.io/github/stars/tigamadou/recipetly.svg?style=flat-square
+[stars-url]: https://github.com/tigamadou/recipetly/stargazers
+[issues-shield]: https://img.shields.io/github/issues/tigamadou/recipetly.svg?style=flat-square
+[issues-url]: https://github.com/tigamadou/recipetly/issues
+[license-shield]: https://img.shields.io/github/license/tigamadou/recipetly.svg?style=flat-square
+[license-url]: https://github.com/tigamadou/recipetly/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/amadou-ibrahim
 [product-screenshot]: images/screenshot.png
