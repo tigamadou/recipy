@@ -12,18 +12,14 @@ import Error404 from '../components/Errors/404';
 const AppRouter = () => (
   <Router>
     <NavLink to="/">Home</NavLink>
-    <NavLink to="/view/1">Single</NavLink>
+    {/* <NavLink to="/view/1">Single</NavLink> */}
 
     <Switch>
-      <Route exact path="/">
-        <Home />
-      </Route>
-      <Route path="/view/:id">
-        <Single />
-      </Route>
-      <Route path="*">
-        <Error404 />
-      </Route>
+
+      <Route exact path="/view/:id" component={Single} />
+      <Route exact path="/" component={Home} />
+      <Route path="*" component={Error404} />
+
     </Switch>
   </Router>
 );
