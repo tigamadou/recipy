@@ -1,6 +1,6 @@
-export const SET_DATA = 'SET_DATA';
+export const SET_DATAS = 'SET_DATAS';
 
 export const setData = (data) => ({
-  type: SET_DATA,
+  type: SET_DATAS,
   data,
 });

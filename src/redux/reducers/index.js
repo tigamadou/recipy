@@ -1,8 +1,8 @@
-import { SET_DATA } from '../actions/index';
+import { SET_DATAS } from '../actions/index';
 
 const dataReducer = (previousState = [], action) => {
   switch (action.type) {
-    case SET_DATA:
+    case SET_DATAS:
       return action.data;
     default:
       return previousState;
