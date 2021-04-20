@@ -6,6 +6,7 @@ import {
 
 const Recipe = ({ data }) => (
   <div>
+    {/* <img src={data.strMealThumb} alt={data.strMeal} /> */}
     <div>
       {data.strMeal}
     </div>

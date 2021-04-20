@@ -8,7 +8,10 @@ const Category = ({ category }) => (
   <div>
     <div>
       <img src={category.strCategoryThumb} alt={category.strCategory} />
-      {category.strCategory}
+      <h3>{category.strCategory}</h3>
+      <p>
+        {category.strCategoryDescription}
+      </p>
     </div>
     <div>
       <Link to={`/category/${category.strCategory}`}> Details </Link>
