@@ -1,4 +1,4 @@
-import { SET_DATAS, SET_CATEGORY, SET_RECIPES } from '../actions/index';
+import { SET_DATAS, SET_MEALS, SET_RECIPES } from '../actions/index';
 
 export const dataReducer = (previousState = [], action) => {
   switch (action.type) {
@@ -20,10 +20,10 @@ export const dataReducer = (previousState = [], action) => {
   }
 };
 
-export const categoryReducer = (previousState = null, action) => {
+export const mealReducer = (previousState = [], action) => {
   switch (action.type) {
-    case SET_CATEGORY:
-      return action.category;
+    case SET_MEALS:
+      return action.meals;
     default:
       return previousState;
   }
