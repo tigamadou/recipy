@@ -1,6 +1,9 @@
-import { createStore } from 'redux';
-import dataReducer from './reducers/index';
+import { createStore, combineReducers } from 'redux';
+import { dataReducer, categoryReducer } from './reducers/index';
 
-const storeReducer = () => createStore(dataReducer);
+const storeReducer = () => createStore(combineReducers({
+  datas: dataReducer,
+  category: categoryReducer,
+}));
 
 export default storeReducer;

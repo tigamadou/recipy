@@ -3,15 +3,16 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Axios from 'axios';
 import { setDatas } from '../../redux/actions/index';
-import Recipe from '../Recipe/Recipe';
+import Category from '../Category/Category';
 
 const Home = ({ datas, setDatas }) => {
   useEffect(() => {
-    Axios.get('https://themealdb.com/api/json/v1/1/search.php?f=a')
+    if (datas.length > 0) return;
+    Axios.get('https://www.themealdb.com/api/json/v1/1/categories.php')
       .then((response) => {
         // handle success
-        setDatas(response.data.meals);
         console.log(response);
+        setDatas(response.data.categories);
       })
       .catch((error) => {
         // handle error
@@ -24,7 +25,7 @@ const Home = ({ datas, setDatas }) => {
   return (
     <div>
       {datas.map((data) => (
-        <Recipe data={data} key={data.id} />
+        <Category data={data} key={data.id} />
       ))}
     </div>
   );
@@ -42,7 +43,7 @@ const mapDispatchToProps = (dispatch) => ({
   setDatas: (datas) => dispatch(setDatas(datas)),
 });
 const mapStateToProps = (state) => ({
-  datas: state,
+  datas: state.datas,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

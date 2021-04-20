@@ -5,17 +5,14 @@ import {
 } from 'react-router-dom';
 
 const Recipe = ({ data }) => (
-
   <div>
     <div>
-
       {data.strMeal}
     </div>
     <div>
       <Link to={`/view/${data.idMeal}`}> Details </Link>
     </div>
   </div>
-
 );
 
 Recipe.defaultProps = {

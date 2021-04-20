@@ -15,11 +15,9 @@ const AppRouter = () => (
     {/* <NavLink to="/view/1">Single</NavLink> */}
 
     <Switch>
-
       <Route exact path="/view/:id" component={Single} />
       <Route exact path="/" component={Home} />
       <Route path="*" component={Error404} />
-
     </Switch>
   </Router>
 );
