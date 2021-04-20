@@ -15,7 +15,7 @@ const CategoriesComponent = ({ datas, setRecipes }) => {
   const [filter, setFilter] = useState('ASC');
 
   const filterRecipes = (datas) => {
-    if (filter === 'ASC') {
+    if (filter !== 'ASC') {
       return datas.sort(
         (a, b) => (a.strMeal.toLowerCase() > b.strMeal.toLowerCase() ? -1 : 1),
       );
