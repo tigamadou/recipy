@@ -1,18 +1,18 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import renderer from 'react-test-renderer';
-import Category from './Category';
+import Categories from './Categories';
 
-describe('Category component tests', () => {
-  test('renders Category component ', () => {
-    render(<Category />);
+describe('Categories component tests', () => {
+  test('renders Categories component ', () => {
+    render(<Categories />);
     // eslint-disable-next-line no-unused-expressions
-    expect(screen.getByText('See Details')).toBeInTheDocument;
+    expect(screen.getByText('Category')).toBeInTheDocument;
   });
 
   test('should match with snapshot', () => {
     const tree = renderer
-      .create(<Category />)
+      .create(<Categories />)
       .toJSON();
     expect(tree).toMatchSnapshot();
   });

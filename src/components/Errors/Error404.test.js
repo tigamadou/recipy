@@ -1,18 +1,18 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import renderer from 'react-test-renderer';
-import Category from './Category';
+import Error404 from './Error404';
 
-describe('Category component tests', () => {
-  test('renders Category component ', () => {
-    render(<Category />);
+describe('Error404 component tests', () => {
+  test('renders Error404 component ', () => {
+    render(<Error404 />);
     // eslint-disable-next-line no-unused-expressions
-    expect(screen.getByText('See Details')).toBeInTheDocument;
+    expect(screen.getByText('404')).toBeInTheDocument;
   });
 
   test('should match with snapshot', () => {
     const tree = renderer
-      .create(<Category />)
+      .create(<Error404 />)
       .toJSON();
     expect(tree).toMatchSnapshot();
   });

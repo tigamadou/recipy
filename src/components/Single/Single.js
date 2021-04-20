@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Axios from 'axios';
+import { toast } from 'react-toastify';
 import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createRecipe } from '../../redux/actions/index';
@@ -13,16 +14,19 @@ const Single = ({ recipes, element, createRecipe }) => {
   const getRecipe = () => {
     Axios.get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
       .then((response) => {
-        // handle success
         setData(response.data.meals[0]);
         createRecipe(response.data.meals[0]);
       })
-      .catch((error) => {
-        // handle error
-        console.log(error);
-      })
-      .then(() => {
-        // always executed
+      .catch(() => {
+        toast.error('Oups! Something went wrong. Please try again later.', {
+          position: 'top-right',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
       });
   };
 

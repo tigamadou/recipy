@@ -13,7 +13,7 @@ const Recipe = ({ data }) => (
         {data.strMeal}
       </div>
       <div>
-        <Link to={`/recipe/${data.idMeal}`}> Details </Link>
+        <Link to={`/recipe/${data.idMeal}`}> See Details </Link>
       </div>
     </div>
   </Fade>

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import Axios from 'axios';
+import { toast } from 'react-toastify';
 import { setRecipes } from '../../redux/actions/index';
 import Recipe from '../Recipe/Recipe';
 import CategoryFilter from '../CategoryFilter/CategoryFilter';
@@ -28,16 +29,19 @@ const CategoriesComponent = ({ datas, setRecipes }) => {
   const getRecipes = () => {
     Axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${categoryName}`)
       .then((response) => {
-        // handle success
         setRecipes(categoryName, response.data.meals);
         setRecipesLocal(filterRecipes(response.data.meals));
       })
-      .catch((error) => {
-        // handle error
-        console.log(error);
-      })
-      .then(() => {
-        // always executed
+      .catch(() => {
+        toast.error('Oups! Something went wrong. Please try again later.', {
+          position: 'top-right',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
       });
   };
 
@@ -56,10 +60,10 @@ const CategoriesComponent = ({ datas, setRecipes }) => {
 
   useEffect(() => {
     init();
-    console.log(filter);
   }, [filter]);
   return (
     <div>
+      <h1>Category</h1>
       <CategoryFilter setFilter={setFilter} filter={filter} />
       {recipes.map((data) => (
         <Recipe data={data} key={data.idMeal} />
