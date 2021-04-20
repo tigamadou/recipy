@@ -4,23 +4,23 @@ import {
   Link,
 } from 'react-router-dom';
 
-const Category = ({ data }) => (
+const Category = ({ category }) => (
   <div>
     <div>
-      <img src={data.strCategoryThumb} alt={data.strCategory} />
-      {data.strCategory}
+      <img src={category.strCategoryThumb} alt={category.strCategory} />
+      {category.strCategory}
     </div>
     <div>
-      <Link to={`/category/${data.strCategory}`}> Details </Link>
+      <Link to={`/category/${category.strCategory}`}> Details </Link>
     </div>
   </div>
 );
 
 Category.defaultProps = {
-  data: null,
+  category: null,
 };
 
 Category.propTypes = {
-  data: PropTypes.instanceOf(Object),
+  category: PropTypes.instanceOf(Object),
 };
 export default Category;

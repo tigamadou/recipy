@@ -7,11 +7,13 @@ import Category from '../Category/Category';
 
 const Home = ({ datas, setDatas }) => {
   useEffect(() => {
-    if (datas.length > 0) return;
+    if (datas.length > 0) {
+      // console.log(datas);
+      return;
+    }
     Axios.get('https://www.themealdb.com/api/json/v1/1/categories.php')
       .then((response) => {
         // handle success
-        console.log(response);
         setDatas(response.data.categories);
       })
       .catch((error) => {
@@ -24,8 +26,8 @@ const Home = ({ datas, setDatas }) => {
   }, []);
   return (
     <div>
-      {datas.map((data) => (
-        <Category data={data} key={data.id} />
+      {datas.map((category) => (
+        <Category category={category} key={category.id} />
       ))}
     </div>
   );

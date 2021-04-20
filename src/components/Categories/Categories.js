@@ -1,17 +1,23 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import Axios from 'axios';
 import { setRecipes } from '../../redux/actions/index';
 import Recipe from '../Recipe/Recipe';
 
-const CategoriesComponent = ({ category, datas, setRecipes }) => {
-  useEffect(() => {
-    Axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category.strCategory}`)
+const getDatas = (category, datas) => datas.filter((data) => data.strCategory === category);
+
+const CategoriesComponent = ({ datas, setRecipes }) => {
+  const { categoryName } = useParams();
+  const [recipes, setRecipesLocal] = useState([]);
+
+  const getRecipes = () => {
+    Axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${categoryName}`)
       .then((response) => {
         // handle success
-        setRecipes(response.data.meals);
-        console.log(response);
+        setRecipes(categoryName, response.data.meals);
+        setRecipesLocal(response.data.meals);
       })
       .catch((error) => {
         // handle error
@@ -20,10 +26,20 @@ const CategoriesComponent = ({ category, datas, setRecipes }) => {
       .then(() => {
         // always executed
       });
+  };
+
+  useEffect(() => {
+    const category = getDatas(categoryName, datas)[0];
+    if (category && category.recipes) {
+      setRecipesLocal(category.recipes);
+      return;
+    }
+    getRecipes();
   }, []);
+
   return (
     <div>
-      {datas.map((data) => (
+      {recipes.map((data) => (
         <Recipe data={data} key={data.id} />
       ))}
     </div>
@@ -31,12 +47,10 @@ const CategoriesComponent = ({ category, datas, setRecipes }) => {
 };
 
 CategoriesComponent.propTypes = {
-  category: PropTypes.instanceOf(Object),
   datas: PropTypes.arrayOf(PropTypes.instanceOf(Object)),
   setRecipes: PropTypes.func,
 };
 CategoriesComponent.defaultProps = {
-  category: null,
   datas: [],
   setRecipes: null,
 };
@@ -44,10 +58,8 @@ const mapDispatchToProps = (dispatch) => ({
   setRecipes: (category, recipes) => dispatch(setRecipes(category, recipes)),
 });
 
-const getDatas = (category, datas) => datas.filter((data) => data.id === category.id);
 const mapStateToProps = (state) => ({
-  category: state.category,
-  datas: getDatas(state.category, state.datas),
+  datas: state.datas,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CategoriesComponent);

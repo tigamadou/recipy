@@ -6,6 +6,7 @@ import {
   NavLink,
 } from 'react-router-dom';
 import Home from '../components/Home/Home';
+import Categories from '../components/Categories/Categories';
 import Single from '../components/Single/Single';
 import Error404 from '../components/Errors/404';
 
@@ -15,7 +16,8 @@ const AppRouter = () => (
     {/* <NavLink to="/view/1">Single</NavLink> */}
 
     <Switch>
-      <Route exact path="/view/:id" component={Single} />
+      <Route exact path="/meal/:id" component={Single} />
+      <Route exact path="/category/:categoryName" component={Categories} />
       <Route exact path="/" component={Home} />
       <Route path="*" component={Error404} />
     </Switch>
