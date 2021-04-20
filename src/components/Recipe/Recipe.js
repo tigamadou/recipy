@@ -3,17 +3,20 @@ import PropTypes from 'prop-types';
 import {
   Link,
 } from 'react-router-dom';
+import Fade from 'react-reveal/Zoom';
 
 const Recipe = ({ data }) => (
-  <div>
-    {/* <img src={data.strMealThumb} alt={data.strMeal} /> */}
-    <div>
-      {data.strMeal}
+  <Fade bottom>
+    <div className="recipe">
+      <img src={`${data.strMealThumb}/preview`} alt={data.strMeal} />
+      <div>
+        {data.strMeal}
+      </div>
+      <div>
+        <Link to={`/recipe/${data.idMeal}`}> Details </Link>
+      </div>
     </div>
-    <div>
-      <Link to={`/recipe/${data.idMeal}`}> Details </Link>
-    </div>
-  </div>
+  </Fade>
 );
 
 Recipe.defaultProps = {

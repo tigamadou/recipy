@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 import {
   Link,
 } from 'react-router-dom';
+import Fade from 'react-reveal/Fade';
 
 const Category = ({ category }) => (
-  <div>
+
+  <Fade bottom>
     <div>
       <img src={category.strCategoryThumb} alt={category.strCategory} />
       <h3>{category.strCategory}</h3>
@@ -16,7 +18,7 @@ const Category = ({ category }) => (
     <div>
       <Link to={`/category/${category.strCategory}`}> Details </Link>
     </div>
-  </div>
+  </Fade>
 );
 
 Category.defaultProps = {
