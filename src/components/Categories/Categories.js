@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import Axios from 'axios';
 import { setRecipes } from '../../redux/actions/index';
 import Recipe from '../Recipe/Recipe';
-import CategoryFilter from './CategoryFilter';
+import CategoryFilter from '../CategoryFilter/CategoryFilter';
 
 const getDatas = (category, datas) => datas.filter((data) => data.strCategory === category);
 
