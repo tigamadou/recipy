@@ -16,7 +16,7 @@ const Category = ({ category }) => (
       </p>
     </div>
     <div>
-      <Link to={`/category/${category.strCategory}`}> Details </Link>
+      <Link to={`/category/${category.strCategory}`}> See Details </Link>
     </div>
   </Fade>
 );
