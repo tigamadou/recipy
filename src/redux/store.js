@@ -1,9 +1,9 @@
 import { createStore, combineReducers } from 'redux';
-import { dataReducer, mealReducer } from './reducers/index';
+import { dataReducer, recipeReducer } from './reducers/index';
 
 const storeReducer = () => createStore(combineReducers({
   datas: dataReducer,
-  meals: mealReducer,
+  recipes: recipeReducer,
 }));
 
 export default storeReducer;

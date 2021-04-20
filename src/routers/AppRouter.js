@@ -16,7 +16,7 @@ const AppRouter = () => (
     {/* <NavLink to="/view/1">Single</NavLink> */}
 
     <Switch>
-      <Route exact path="/meal/:id" component={Single} />
+      <Route exact path="/recipe/:id" component={Single} />
       <Route exact path="/category/:categoryName" component={Categories} />
       <Route exact path="/" component={Home} />
       <Route path="*" component={Error404} />
