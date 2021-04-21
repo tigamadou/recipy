@@ -1,9 +1,15 @@
 export const SET_DATAS = 'SET_DATAS';
 export const SET_RECIPES = 'SET_RECIPES';
+export const SET_INGREDIENTS = 'SET_INGREDIENTS';
 export const CREATE_RECIPE = 'SET_MEALS';
 
 export const setDatas = (datas) => ({
   type: SET_DATAS,
+  datas,
+});
+
+export const setIngredients = (datas) => ({
+  type: SET_INGREDIENTS,
   datas,
 });
 

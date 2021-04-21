@@ -7,10 +7,28 @@ import { setDatas } from '../../redux/actions/index';
 import Category from '../Category/Category';
 
 const Home = ({ datas, setDatas }) => {
-  useEffect(() => {
+  const parseIngredients = (datas) => {
+    const ingredients = [];
+
+    datas.forEach((element) => {
+      if (!ingredients[element.strIngredient]) {
+        ingredients.push(element.strIngredient);
+      }
+    });
+  };
+
+  const getIngredients = () => {
+    Axios.get('https://www.themealdb.com/api/json/v1/1/list.php?i=list')
+      .then((response) => {
+        //
+        parseIngredients(response.data.meals);
+      })
+      .catch(() => {
+      });
+  };
+  const categories = () => {
     Axios.get('https://www.themealdb.com/api/json/v1/1/categories.php')
       .then((response) => {
-        // handle success
         setDatas(response.data.categories);
       })
       .catch(() => {
@@ -24,6 +42,13 @@ const Home = ({ datas, setDatas }) => {
           progress: undefined,
         });
       });
+  };
+
+  useEffect(() => {
+    getIngredients();
+    if (datas.lenght < 1) {
+      categories();
+    }
   }, []);
 
   return (

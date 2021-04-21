@@ -54,30 +54,8 @@ const CategoriesComponent = ({ datas, setRecipes }) => {
     getRecipes();
   };
 
-  const parseIngredients = (datas) => {
-    const ingredients = [];
-
-    datas.forEach((element) => {
-      if (!ingredients[element.strIngredient]) {
-        ingredients.push(element.strIngredient);
-      }
-    });
-    console.log(ingredients);
-  };
-
-  const getIngredients = () => {
-    Axios.get('https://www.themealdb.com/api/json/v1/1/list.php?i=list')
-      .then((response) => {
-        //
-        parseIngredients(response.data.meals);
-      })
-      .catch(() => {
-      });
-  };
-
   useEffect(() => {
     init();
-    getIngredients();
   }, []);
 
   useEffect(() => {

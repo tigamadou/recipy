@@ -1,4 +1,6 @@
-import { SET_DATAS, CREATE_RECIPE, SET_RECIPES } from '../actions/index';
+import {
+  SET_DATAS, CREATE_RECIPE, SET_RECIPES, SET_INGREDIENTS,
+} from '../actions/index';
 
 export const dataReducer = (previousState = [], action) => {
   switch (action.type) {
@@ -24,6 +26,15 @@ export const recipeReducer = (previousState = [], action) => {
   switch (action.type) {
     case CREATE_RECIPE:
       return [...previousState, action.recipe];
+    default:
+      return previousState;
+  }
+};
+
+export const ingredientReducer = (previousState = [], action) => {
+  switch (SET_INGREDIENTS) {
+    case SET_INGREDIENTS:
+      return [...previousState, action.datas];
     default:
       return previousState;
   }
