@@ -1,5 +1,5 @@
 import {
-  SET_DATAS, CREATE_RECIPE, SET_RECIPES, SET_INGREDIENTS,
+  SET_DATAS, CREATE_RECIPE, SET_RECIPES, SET_INGREDIENTS, SET_HEADER,
 } from '../actions/index';
 
 export const dataReducer = (previousState = [], action) => {
@@ -35,6 +35,15 @@ export const ingredientReducer = (previousState = [], action) => {
   switch (action.type) {
     case SET_INGREDIENTS:
       return action.datas;
+    default:
+      return previousState;
+  }
+};
+
+export const headerReducer = (previousState = { back: false, title: 'Recipetly', search: false }, action) => {
+  switch (action.type) {
+    case SET_HEADER:
+      return { back: action.back, title: action.title, search: action.search };
     default:
       return previousState;
   }

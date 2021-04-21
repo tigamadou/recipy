@@ -1,10 +1,10 @@
 import { createStore, combineReducers } from 'redux';
-import { dataReducer, recipeReducer, ingredientReducer } from './reducers/index';
+import { dataReducer, recipeReducer, headerReducer } from './reducers/index';
 
 const storeReducer = () => createStore(combineReducers({
   datas: dataReducer,
   recipes: recipeReducer,
-  ingredients: ingredientReducer,
+  header: headerReducer,
 }));
 
 export default storeReducer;

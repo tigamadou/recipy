@@ -4,16 +4,14 @@ import { Provider } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './styles/app.scss';
-import AppRouter from './routers/AppRouter';
+import App from './components/App/App';
 import storeReducer from './redux/store';
 
 const store = storeReducer();
 
 ReactDOM.render(
   <Provider store={store}>
-    <div className="app">
-      <AppRouter />
-    </div>
+    <App />
     <ToastContainer />
   </Provider>,
   document.getElementById('root'),

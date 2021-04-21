@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import Axios from 'axios';
 import { toast } from 'react-toastify';
+import { connect } from 'react-redux';
 import { setDatas } from '../../redux/actions/index';
 import Category from '../Category/Category';
 
