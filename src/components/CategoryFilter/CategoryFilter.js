@@ -3,17 +3,13 @@ import PropTypes from 'prop-types';
 
 const CategoryFilter = ({ filter, setFilter }) => (
   <div>
-    <p>Filtrer by</p>
-    <select onChange={(e) => setFilter(e.target.value)} value={filter}>
-      <option>ASC</option>
-      <option>DESC</option>
-    </select>
+    <input onChange={(e) => setFilter(e.target.value)} value={filter} placeholder="Type your search here" />
   </div>
 );
 
 CategoryFilter.defaultProps = {
   setFilter: null,
-  filter: 'ASC',
+  filter: '',
 };
 
 CategoryFilter.propTypes = {

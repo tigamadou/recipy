@@ -10,21 +10,13 @@ import CategoryFilter from '../CategoryFilter/CategoryFilter';
 
 const getDatas = (category, datas) => datas.filter((data) => data.strCategory === category);
 
-const CategoriesComponent = ({ datas, setRecipes }) => {
+const CategoriesComponent = ({ datas, ingredients, setRecipes }) => {
   const { categoryName } = useParams();
   const [recipes, setRecipesLocal] = useState([]);
-  const [filter, setFilter] = useState('ASC');
+  const [filter, setFilter] = useState('');
 
-  const filterRecipes = (datas) => {
-    if (filter !== 'ASC') {
-      return datas.sort(
-        (a, b) => (a.strMeal.toLowerCase() > b.strMeal.toLowerCase() ? -1 : 1),
-      );
-    }
-    return datas.sort(
-      (a, b) => (a.strMeal.toLowerCase() < b.strMeal.toLowerCase() ? -1 : 1),
-    );
-  };
+  // eslint-disable-next-line max-len
+  const filterRecipes = (datas) => datas.filter((data) => data.strMeal.toLowerCase().indexOf(filter.toLowerCase()) > -1);
 
   const getRecipes = () => {
     Axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${categoryName}`)
@@ -64,7 +56,7 @@ const CategoriesComponent = ({ datas, setRecipes }) => {
   return (
     <div>
       <h1>Category</h1>
-      <CategoryFilter setFilter={setFilter} filter={filter} />
+      <CategoryFilter setFilter={setFilter} filter={filter} ingredients={ingredients} />
       {recipes.map((data) => (
         <Recipe data={data} key={data.idMeal} />
       ))}
@@ -74,10 +66,12 @@ const CategoriesComponent = ({ datas, setRecipes }) => {
 
 CategoriesComponent.propTypes = {
   datas: PropTypes.arrayOf(PropTypes.instanceOf(Object)),
+  ingredients: PropTypes.instanceOf(Array),
   setRecipes: PropTypes.func,
 };
 CategoriesComponent.defaultProps = {
   datas: [],
+  ingredients: [],
   setRecipes: null,
 };
 const mapDispatchToProps = (dispatch) => ({

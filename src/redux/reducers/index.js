@@ -32,9 +32,9 @@ export const recipeReducer = (previousState = [], action) => {
 };
 
 export const ingredientReducer = (previousState = [], action) => {
-  switch (SET_INGREDIENTS) {
+  switch (action.type) {
     case SET_INGREDIENTS:
-      return [...previousState, action.datas];
+      return action.datas;
     default:
       return previousState;
   }
