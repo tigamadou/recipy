@@ -4,19 +4,32 @@ import {
   Link,
 } from 'react-router-dom';
 import Fade from 'react-reveal/Fade';
+import Color from '../../styles/modules/Colors.module.scss';
+import Card from '../../styles/modules/Card.module.scss';
+import Font from '../../styles/modules/Font.module.scss';
 
 const Category = ({ category }) => (
 
   <Fade bottom>
-    <div>
-      <img src={category.strCategoryThumb} alt={category.strCategory} />
-      <h3>{category.strCategory}</h3>
-      <p>
-        {category.strCategoryDescription}
-      </p>
-    </div>
-    <div>
-      <Link to={`/category/${category.strCategory}`}> See Details </Link>
+    <div className={`card ${Card.withOverlay}`} style={{ backgroundImage: `url(${category.strCategoryThumb})` }}>
+      <Link to={`/category/${category.strCategory}`}>
+        <div className="content">
+          <div className="overlay">
+            <div>
+              <h2 className={`title ${Color.white} ${Font.is_xl}`}>{category.strCategory}</h2>
+            </div>
+            <div className="description">
+              <p className={`${Font.is_sm}`}>
+                Find all our
+                {category.strCategory}
+                {' '}
+                recipes.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </Link>
     </div>
   </Fade>
 );

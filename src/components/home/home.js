@@ -33,13 +33,17 @@ const Home = ({ datas, setDatas }) => {
   }, []);
 
   return (
-    <div>
+    <>
       <Header />
+      <div className="container">
+        <div className="cards">
 
-      {datas.map((category) => (
-        <Category category={category} key={category.id} />
-      ))}
-    </div>
+          {datas.map((category) => (
+            <Category category={category} key={category.id} />
+          ))}
+        </div>
+      </div>
+    </>
   );
 };
 

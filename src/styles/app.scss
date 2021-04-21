@@ -1,18 +1,105 @@
+@import "variables";
+@import "reset";
 body {
-  background: #333;
+  padding: 0px;
+  margin: 0px;
+  background-color: #f1f1f1;
+  * {
+    box-sizing: border-box;
+    max-width: 100%;
+  }
 }
 
-.app{
+.app {
   width: 100%;
-  max-width: 600px;
+  max-width: 900px;
   margin: auto;
-  background: #222;
-  .header{
-    background: #000;
+  position: relative;
+
+  .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 16px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+  }
+  .container {
+   
+    margin: auto;
+    background-color: $whiteColor;
+  }
+  .cards {
+    display: flex;
+    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    @media screen and ( max-width: 1024px) {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(14, 1fr);
+      grid-column-gap: 16px;
+      grid-row-gap: 16px;
+    }
+  }
+  .card {
     
+    position: relative;
+    display: inline-block;
+    background-size: 90%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #fff;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+    &:after {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+    }
+    .content {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      padding: 16px;
+      .overlay {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        padding: 16px;
+        background-color: rgba($color: #000000, $alpha: 0.8);
+        width: 100%;
+        transition: all 0.5s ease-in-out;
+        .title {
+          text-decoration: none;
+          font-weight: bold;
+        }
+        .description {
+          color: $primaryColor;
+        }
+      }
+    }
+    &:hover {
+      box-shadow: 0px 0px 50px #f1f1f1 inset;
+      background-size: 120%;
+      .content {
+        .overlay {
+          background-color: rgba($color: $secondaryColor, $alpha: 0.8);
+          padding-bottom: 32px;
+          .title {
+            color: #333;
+          }
+          .description {
+            color: #fff;
+          }
+        }
+      }
+    }
   }
 }

@@ -51,7 +51,7 @@ const CategoriesComponent = ({ datas, ingredients, setRecipes }) => {
   }, [filter]);
 
   return (
-    <div>
+    <div className="container">
       <h1>Category</h1>
       <CategoryFilter setFilter={setFilter} filter={filter} ingredients={ingredients} />
       {recipes.map((data) => (

@@ -3,7 +3,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  NavLink,
 } from 'react-router-dom';
 import Home from '../components/Home/Home';
 import Categories from '../components/Categories/Categories';
@@ -12,9 +11,6 @@ import Error404 from '../components/Errors/Error404';
 
 const AppRouter = () => (
   <Router>
-    <NavLink to="/">Home</NavLink>
-    {/* <NavLink to="/view/1">Single</NavLink> */}
-
     <Switch>
       <Route exact path="/recipe/:id" component={Single} />
       <Route exact path="/category/:categoryName" component={Categories} />

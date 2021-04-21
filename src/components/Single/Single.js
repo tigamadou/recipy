@@ -43,7 +43,7 @@ const Single = ({ recipes, element, createRecipe }) => {
     getRecipe();
   }, []);
   return (
-    <div>
+    <div className="container">
       {data
         && (
         <div>
