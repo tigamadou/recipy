@@ -25,6 +25,7 @@ const Home = ({ datas, setDatas }) => {
         });
       });
   }, []);
+
   return (
     <div>
       <h1>Recipetly</h1>

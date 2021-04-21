@@ -11,6 +11,10 @@ const getData = (id, recipes) => recipes.filter((data) => data.idMeal === id);
 const Single = ({ recipes, element, createRecipe }) => {
   const [data, setData] = useState(element);
   const { id } = useParams();
+  const ingredients = [];
+  for (let i = 0; i < 20; i += 1) {
+    ingredients.push(i);
+  }
   const getRecipe = () => {
     Axios.get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
       .then((response) => {
@@ -44,7 +48,27 @@ const Single = ({ recipes, element, createRecipe }) => {
         && (
         <div>
           <img src={data.strMealThumb} alt={data.strMeal} />
-          {data.strMeal}
+          <h1>{data.strMeal}</h1>
+          <div>{data.strArea}</div>
+          <div>{data.strCategory}</div>
+          <div>{data.strCategory}</div>
+          <div>
+            <h3>Ingredients</h3>
+            <ul>
+              { ingredients.map((e) => {
+                if (data[`strIngredient${e + 1}`] !== '' && data[`strIngredient${e + 1}`] !== null) {
+                  return <li key={e}>{ data[`strIngredient${e + 1}`] }</li>;
+                }
+                return <></>;
+              })}
+            </ul>
+          </div>
+          <div>
+            <h3>Instruction</h3>
+            <p>
+              {data.strInstructions}
+            </p>
+          </div>
         </div>
         )}
     </div>

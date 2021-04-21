@@ -9,9 +9,7 @@ const Recipe = ({ data }) => (
   <Fade bottom>
     <div className="recipe">
       <img src={`${data.strMealThumb}/preview`} alt={data.strMeal} />
-      <div>
-        {data.strMeal}
-      </div>
+      <div>{data.strMeal}</div>
       <div>
         <Link to={`/recipe/${data.idMeal}`}> See Details </Link>
       </div>
