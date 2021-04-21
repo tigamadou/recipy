@@ -4,11 +4,13 @@ import Axios from 'axios';
 import { toast } from 'react-toastify';
 import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { createRecipe } from '../../redux/actions/index';
+import { createRecipe, setHeader } from '../../redux/actions/index';
 
 const getData = (id, recipes) => recipes.filter((data) => data.idMeal === id);
 
-const Single = ({ recipes, element, createRecipe }) => {
+const Single = ({
+  recipes, element, createRecipe, setHeader,
+}) => {
   const [data, setData] = useState(element);
   const { id } = useParams();
   const ingredients = [];
@@ -42,6 +44,12 @@ const Single = ({ recipes, element, createRecipe }) => {
     }
     getRecipe();
   }, []);
+
+  useEffect(() => {
+    if (data) {
+      setHeader({ title: data.strMeal, back: `/category/${data.strCategory}`, search: true });
+    }
+  }, [data]);
   return (
     <div className="container">
       {data
@@ -79,16 +87,19 @@ Single.defaultProps = {
   element: null,
   recipes: null,
   createRecipe: null,
+  setHeader: null,
 };
 
 Single.propTypes = {
   element: PropTypes.instanceOf(Object),
   recipes: PropTypes.arrayOf(PropTypes.instanceOf(Object)),
   createRecipe: PropTypes.func,
+  setHeader: PropTypes.func,
 };
 
 const mapDispatchToProps = (dispatch) => ({
   createRecipe: (recipe) => dispatch(createRecipe(recipe)),
+  setHeader: (header) => dispatch(setHeader(header)),
 });
 
 const mapStateToProps = (state) => ({

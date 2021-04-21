@@ -3,7 +3,7 @@
 body {
   padding: 0px;
   margin: 0px;
-  background-color: #f1f1f1;
+  background-color: #000;
   * {
     box-sizing: border-box;
     max-width: 100%;
@@ -12,9 +12,10 @@ body {
 
 .app {
   width: 100%;
-  max-width: 900px;
+  max-width: 1920px;
   margin: auto;
   position: relative;
+  min-height: 100vh;
 
   .header {
     display: flex;
@@ -51,60 +52,75 @@ body {
       grid-column-gap: 16px;
       grid-row-gap: 16px;
     }
-  }
-  .card {
-    
-    position: relative;
-    display: inline-block;
-    background-size: 90%;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: #fff;
-    overflow: hidden;
-    transition: all 0.5s ease-in-out;
-    cursor: pointer;
-    &:after {
-      content: "";
-      display: block;
-      padding-bottom: 100%;
-    }
-    .content {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      padding: 16px;
-      .overlay {
-        position: absolute;
-        left: 0px;
-        bottom: 0px;
-        padding: 16px;
-        background-color: rgba($color: #000000, $alpha: 0.8);
-        width: 100%;
-        transition: all 0.5s ease-in-out;
-        .title {
-          text-decoration: none;
-          font-weight: bold;
-        }
-        .description {
-          color: $primaryColor;
-        }
-      }
-    }
-    &:hover {
-      box-shadow: 0px 0px 50px #f1f1f1 inset;
-      background-size: 120%;
+    .card {
+      position: relative;
+      display: inline-block;
+      background-size: 100%;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: #fff;
+      overflow: hidden;
+      transition: all 0.5s ease-in-out;
+      cursor: pointer;
+      height: 75vh;
+      // &:after {
+      //   content: "";
+      //   display: block;
+      //   padding-bottom: 100%;
+      // }
       .content {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        padding: 16px;
         .overlay {
-          background-color: rgba($color: $secondaryColor, $alpha: 0.8);
-          padding-bottom: 32px;
+          position: absolute;
+          left: 0px;
+          bottom: 0px;
+          padding: 16px;
+          background-color: rgba($color: #000000, $alpha: 0.8);
+          width: 100%;
+          transition: all 0.5s ease-in-out;
+          min-height: 20%;
           .title {
-            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            margin-bottom: 1rem;
           }
           .description {
-            color: #fff;
+            color: $primaryColor;
+          }
+        }
+      }
+      &:hover {
+        box-shadow: 0px 0px 50px #999 inset;
+        background-size: 120%;
+        .content {
+          .overlay {
+            background-color: rgba($color: $secondaryColor, $alpha: 0.8);
+            min-height: 40%;
+            padding: 2rem;
+            .title {
+              color: #333;
+              font-size: 4rem;
+              
+            }
+            .description {
+              color: #fff;
+              font-size: 2rem;
+            }
           }
         }
       }
     }
+  }
+  .filter{
+    padding: 16px;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-weight: bold;
+    background: #222;
+    color: #fff;
   }
 }

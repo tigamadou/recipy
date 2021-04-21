@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const CategoryFilter = ({ filter, setFilter }) => (
   <div>
-    <input onChange={(e) => setFilter(e.target.value)} value={filter} placeholder="Type the recipe name" />
+    <input className="filter" onChange={(e) => setFilter(e.target.value)} value={filter} placeholder="Type the recipe name" />
   </div>
 );
 

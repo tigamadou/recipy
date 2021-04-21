@@ -10,7 +10,7 @@ import Font from '../../styles/modules/Font.module.scss';
 
 const Category = ({ category }) => (
 
-  <Fade bottom>
+  <Fade>
     <div className={`card ${Card.withOverlay}`} style={{ backgroundImage: `url(${category.strCategoryThumb})` }}>
       <Link to={`/category/${category.strCategory}`}>
         <div className="content">
