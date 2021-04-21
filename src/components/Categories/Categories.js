@@ -48,11 +48,8 @@ const CategoriesComponent = ({ datas, ingredients, setRecipes }) => {
 
   useEffect(() => {
     init();
-  }, []);
-
-  useEffect(() => {
-    init();
   }, [filter]);
+
   return (
     <div>
       <h1>Category</h1>

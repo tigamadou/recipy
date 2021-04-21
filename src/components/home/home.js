@@ -5,6 +5,7 @@ import Axios from 'axios';
 import { toast } from 'react-toastify';
 import { setDatas } from '../../redux/actions/index';
 import Category from '../Category/Category';
+import Header from '../Header/Header';
 
 const Home = ({ datas, setDatas }) => {
   const categories = () => {
@@ -33,7 +34,8 @@ const Home = ({ datas, setDatas }) => {
 
   return (
     <div>
-      <h1>Recipetly</h1>
+      <Header />
+
       {datas.map((category) => (
         <Category category={category} key={category.id} />
       ))}

@@ -11,7 +11,9 @@ const store = storeReducer();
 
 ReactDOM.render(
   <Provider store={store}>
-    <AppRouter />
+    <div className="app">
+      <AppRouter />
+    </div>
     <ToastContainer />
   </Provider>,
   document.getElementById('root'),
