@@ -4,11 +4,9 @@ export const SET_RECIPES = 'SET_RECIPES';
 export const SET_INGREDIENTS = 'SET_INGREDIENTS';
 export const CREATE_RECIPE = 'SET_MEALS';
 
-export const setHeader = (back, title, search) => ({
-  type: SET_DATAS,
-  back,
-  title,
-  search,
+export const setHeader = (header) => ({
+  type: SET_HEADER,
+  header,
 });
 
 export const setDatas = (datas) => ({

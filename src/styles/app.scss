@@ -18,13 +18,18 @@ body {
 
   .header {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     padding: 16px;
     position: -webkit-sticky;
     position: sticky;
     top: 0px;
     z-index: 1;
+    .title{
+      flex: 1;
+      
+    }
+    .nav{margin-right: 50px;}
   }
   .container {
    

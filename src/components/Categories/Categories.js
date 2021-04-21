@@ -4,13 +4,15 @@ import { connect } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import Axios from 'axios';
 import { toast } from 'react-toastify';
-import { setRecipes } from '../../redux/actions/index';
+import { setRecipes, setHeader } from '../../redux/actions/index';
 import Recipe from '../Recipe/Recipe';
 import CategoryFilter from '../CategoryFilter/CategoryFilter';
 
 const getDatas = (category, datas) => datas.filter((data) => data.strCategory === category);
 
-const CategoriesComponent = ({ datas, ingredients, setRecipes }) => {
+const CategoriesComponent = ({
+  datas, ingredients, setRecipes, setHeader,
+}) => {
   const { categoryName } = useParams();
   const [recipes, setRecipesLocal] = useState([]);
   const [filter, setFilter] = useState('');
@@ -47,6 +49,7 @@ const CategoriesComponent = ({ datas, ingredients, setRecipes }) => {
   };
 
   useEffect(() => {
+    setHeader({ title: `${categoryName}`, back: '/', search: true });
     init();
   }, [filter]);
 
@@ -65,14 +68,17 @@ CategoriesComponent.propTypes = {
   datas: PropTypes.arrayOf(PropTypes.instanceOf(Object)),
   ingredients: PropTypes.instanceOf(Array),
   setRecipes: PropTypes.func,
+  setHeader: PropTypes.func,
 };
 CategoriesComponent.defaultProps = {
   datas: [],
   ingredients: [],
   setRecipes: null,
+  setHeader: null,
 };
 const mapDispatchToProps = (dispatch) => ({
   setRecipes: (category, recipes) => dispatch(setRecipes(category, recipes)),
+  setHeader: (header) => dispatch(setHeader(header)),
 });
 
 const mapStateToProps = (state) => ({
