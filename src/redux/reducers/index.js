@@ -1,12 +1,10 @@
-import {
-  SET_DATAS, CREATE_RECIPE, SET_RECIPES, SET_INGREDIENTS, SET_HEADER,
-} from '../actions/index';
+import * as types from '../actions/types';
 
 export const dataReducer = (previousState = [], action) => {
   switch (action.type) {
-    case SET_DATAS:
+    case types.SET_DATAS:
       return action.datas;
-    case SET_RECIPES:
+    case types.SET_RECIPES:
       return previousState.map((data) => {
         if (data.strCategory === action.category) {
           return {
@@ -24,17 +22,8 @@ export const dataReducer = (previousState = [], action) => {
 
 export const recipeReducer = (previousState = [], action) => {
   switch (action.type) {
-    case CREATE_RECIPE:
+    case types.CREATE_RECIPE:
       return [...previousState, action.recipe];
-    default:
-      return previousState;
-  }
-};
-
-export const ingredientReducer = (previousState = [], action) => {
-  switch (action.type) {
-    case SET_INGREDIENTS:
-      return action.datas;
     default:
       return previousState;
   }
@@ -42,7 +31,7 @@ export const ingredientReducer = (previousState = [], action) => {
 
 export const headerReducer = (previousState = { back: false, title: 'Recipely' }, action) => {
   switch (action.type) {
-    case SET_HEADER:
+    case types.SET_HEADER:
       return action.header;
     default:
       return previousState;

@@ -4,17 +4,17 @@ import { connect } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import Axios from 'axios';
 import { toast } from 'react-toastify';
-import { setRecipes, setHeader } from '../../redux/actions/index';
+import { SetRecipes, SetHeader } from '../../redux/actions/index';
 import Recipe from '../Recipe/Recipe';
 import CategoryFilter from '../CategoryFilter/CategoryFilter';
 
 const getDatas = (category, datas) => datas.filter((data) => data.strCategory === category);
 
 const CategoriesComponent = ({
-  datas, ingredients, setRecipes, setHeader,
+  datas, ingredients, SetRecipes, SetHeader,
 }) => {
   const { categoryName } = useParams();
-  const [recipes, setRecipesLocal] = useState([]);
+  const [recipes, SetRecipesLocal] = useState([]);
   const [filter, setFilter] = useState('');
 
   // eslint-disable-next-line max-len
@@ -23,8 +23,8 @@ const CategoriesComponent = ({
   const getRecipes = () => {
     Axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${categoryName}`)
       .then((response) => {
-        setRecipes(categoryName, response.data.meals);
-        setRecipesLocal(filterRecipes(response.data.meals));
+        SetRecipes(categoryName, response.data.meals);
+        SetRecipesLocal(filterRecipes(response.data.meals));
       })
       .catch(() => {
         toast.error('Oups! Something went wrong. Please try again later.', {
@@ -42,14 +42,14 @@ const CategoriesComponent = ({
   const init = async () => {
     const category = getDatas(categoryName, datas)[0];
     if (category && category.recipes) {
-      setRecipesLocal(filterRecipes(category.recipes));
+      SetRecipesLocal(filterRecipes(category.recipes));
       return;
     }
     getRecipes();
   };
 
   useEffect(() => {
-    setHeader({ title: `${categoryName}`, back: '/' });
+    SetHeader({ title: `${categoryName}`, back: '/' });
     init();
   }, [filter]);
 
@@ -70,18 +70,18 @@ const CategoriesComponent = ({
 CategoriesComponent.propTypes = {
   datas: PropTypes.arrayOf(PropTypes.instanceOf(Object)),
   ingredients: PropTypes.instanceOf(Array),
-  setRecipes: PropTypes.func,
-  setHeader: PropTypes.func,
+  SetRecipes: PropTypes.func,
+  SetHeader: PropTypes.func,
 };
 CategoriesComponent.defaultProps = {
   datas: [],
   ingredients: [],
-  setRecipes: null,
-  setHeader: null,
+  SetRecipes: null,
+  SetHeader: null,
 };
 const mapDispatchToProps = (dispatch) => ({
-  setRecipes: (category, recipes) => dispatch(setRecipes(category, recipes)),
-  setHeader: (header) => dispatch(setHeader(header)),
+  SetRecipes: (category, recipes) => dispatch(SetRecipes(category, recipes)),
+  SetHeader: (header) => dispatch(SetHeader(header)),
 });
 
 const mapStateToProps = (state) => ({

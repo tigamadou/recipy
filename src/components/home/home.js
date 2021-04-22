@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import Axios from 'axios';
 import { toast } from 'react-toastify';
 import { connect } from 'react-redux';
-import { setDatas, setHeader } from '../../redux/actions/index';
+import { SetDatas, SetHeader } from '../../redux/actions/index';
 import Category from '../Category/Category';
 
-const Home = ({ datas, setDatas, setHeader }) => {
+const Home = ({ datas, SetDatas, SetHeader }) => {
   const categories = () => {
     Axios.get('https://www.themealdb.com/api/json/v1/1/categories.php')
       .then((response) => {
-        setDatas(response.data.categories);
+        SetDatas(response.data.categories);
       })
       .catch(() => {
         toast.error('Oups! Something went wrong. Please try again later.', {
@@ -26,7 +26,7 @@ const Home = ({ datas, setDatas, setHeader }) => {
   };
 
   useEffect(() => {
-    setHeader({ title: 'Recipely' });
+    SetHeader({ title: 'Recipely' });
     if (datas.length < 1) {
       categories();
     }
@@ -48,17 +48,17 @@ const Home = ({ datas, setDatas, setHeader }) => {
 
 Home.propTypes = {
   datas: PropTypes.arrayOf(PropTypes.instanceOf(Object)),
-  setDatas: PropTypes.func,
-  setHeader: PropTypes.func,
+  SetDatas: PropTypes.func,
+  SetHeader: PropTypes.func,
 };
 Home.defaultProps = {
   datas: [],
-  setDatas: null,
-  setHeader: null,
+  SetDatas: null,
+  SetHeader: null,
 };
 const mapDispatchToProps = (dispatch) => ({
-  setDatas: (datas) => dispatch(setDatas(datas)),
-  setHeader: (header) => dispatch(setHeader(header)),
+  SetDatas: (datas) => dispatch(SetDatas(datas)),
+  SetHeader: (header) => dispatch(SetHeader(header)),
 });
 const mapStateToProps = (state) => ({
   datas: state.datas,

@@ -12,14 +12,14 @@ import { FiCheckSquare } from 'react-icons/fi';
 import { toast } from 'react-toastify';
 import { connect } from 'react-redux';
 import Fade from 'react-reveal/Fade';
-import { createRecipe, setHeader } from '../../redux/actions/index';
+import { CreateRecipe, SetHeader } from '../../redux/actions/index';
 import Color from '../../styles/modules/Colors.module.scss';
 import Font from '../../styles/modules/Font.module.scss';
 
 const getData = (id, recipes) => recipes.filter((data) => data.idMeal === id);
 
 const Single = ({
-  recipes, element, createRecipe, setHeader,
+  recipes, element, CreateRecipe, SetHeader,
 }) => {
   const [data, setData] = useState(element);
   const { id } = useParams();
@@ -32,7 +32,7 @@ const Single = ({
     Axios.get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
       .then((response) => {
         setData(response.data.meals[0]);
-        createRecipe(response.data.meals[0]);
+        CreateRecipe(response.data.meals[0]);
       })
       .catch(() => {
         toast.error('Oups! Something went wrong. Please try again later.', {
@@ -58,7 +58,7 @@ const Single = ({
 
   useEffect(() => {
     if (data) {
-      setHeader({ title: data.strCategory, back: `/category/${data.strCategory}` });
+      SetHeader({ title: data.strCategory, back: `/category/${data.strCategory}` });
     }
   }, [data]);
 
@@ -155,20 +155,20 @@ const Single = ({
 Single.defaultProps = {
   element: null,
   recipes: null,
-  createRecipe: null,
-  setHeader: null,
+  CreateRecipe: null,
+  SetHeader: null,
 };
 
 Single.propTypes = {
   element: PropTypes.instanceOf(Object),
   recipes: PropTypes.arrayOf(PropTypes.instanceOf(Object)),
-  createRecipe: PropTypes.func,
-  setHeader: PropTypes.func,
+  CreateRecipe: PropTypes.func,
+  SetHeader: PropTypes.func,
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  createRecipe: (recipe) => dispatch(createRecipe(recipe)),
-  setHeader: (header) => dispatch(setHeader(header)),
+  CreateRecipe: (recipe) => dispatch(CreateRecipe(recipe)),
+  SetHeader: (header) => dispatch(SetHeader(header)),
 });
 
 const mapStateToProps = (state) => ({
