@@ -79,7 +79,7 @@ const Single = ({
               </li>
             );
           }
-          return <></>;
+          return <React.Fragment key={`strIngredient${e + 1}`} />;
         })}
       </ul>
     </Fade>
