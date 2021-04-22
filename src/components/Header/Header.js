@@ -13,11 +13,11 @@ const Header = ({ data }) => (
   <header className={`header ${Background.dark}`}>
     {data.back
           && (
-            <Link to={data.back} className={`nav ${Color.white} ${Font.is_md}`}>
+            <Link to={data.back} className={`nav ${Color.primary} ${Font.is_md}`}>
               <FiArrowLeft />
             </Link>
           )}
-    <div className={`title ${Color.white} ${Font.is_sm}`}><h1>{data.title}</h1></div>
+    <div className={`title ${Color.secondary} ${Font.is_sm}`}><h1>{data.title}</h1></div>
   </header>
 
 );

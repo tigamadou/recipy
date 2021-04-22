@@ -3,7 +3,7 @@ import {
   Switch,
   Route,
 } from 'react-router-dom';
-import Home from '../components/Home/Home';
+import Home from '../components/HomeComponent/HomeComponent';
 import Categories from '../components/Categories/Categories';
 import Single from '../components/Single/Single';
 import Error404 from '../components/Errors/Error404';

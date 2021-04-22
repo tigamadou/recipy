@@ -38,7 +38,7 @@ const Home = ({ datas, SetDatas, SetHeader }) => {
         <div className="cards">
 
           {datas.map((category) => (
-            <Category category={category} key={category.id} />
+            <Category category={category} key={category.idCategory} />
           ))}
         </div>
       </div>
