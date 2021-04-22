@@ -9,7 +9,7 @@ describe('Header Reducer', () => {
   });
 
   it('should handle SET_HEADER', () => {
-    const header = { title: 'Reciply', back: '/' };
+    const header = { title: 'Recipely', back: '/' };
     expect(
       HeaderReducer([], {
         type: types.SET_HEADER,

@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component tests should match with snapshot 1`] = `
+<header
+  className="header dark"
+>
+  <div
+    className="title white is_sm"
+  >
+    <h1>
+      Recipely
+    </h1>
+  </div>
+</header>
+`;
