@@ -2,19 +2,11 @@
 
 exports[`CategoryFilter component tests should match with snapshot 1`] = `
 <div>
-  <p>
-    Filtrer by
-  </p>
-  <select
+  <input
+    className="filter"
     onChange={[Function]}
-    value="ASC"
-  >
-    <option>
-      ASC
-    </option>
-    <option>
-      DESC
-    </option>
-  </select>
+    placeholder="Type the recipe name"
+    value=""
+  />
 </div>
 `;
