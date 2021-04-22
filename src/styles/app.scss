@@ -1,9 +1,11 @@
 @import "variables";
 @import "reset";
+
 body {
-  padding: 0px;
-  margin: 0px;
+  padding: 0;
+  margin: 0;
   background-color: #000;
+
   * {
     box-sizing: border-box;
     max-width: 100%;
@@ -15,7 +17,10 @@ body {
   max-width: 1920px;
   margin: auto;
   position: relative;
-  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 
   .header {
     display: flex;
@@ -24,41 +29,67 @@ body {
     padding: 16px;
     position: -webkit-sticky;
     position: sticky;
-    top: 0px;
+    top: 0;
     z-index: 1;
-    .title{
+
+    .title {
       flex: 1;
-      
     }
-    .nav{margin-right: 50px;}
+
+    .nav {
+      margin-right: 24px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 16px;
+      background: #111;
+      border-radius: 50%;
+
+      &:hover {
+        color: $primaryColor;
+      }
+
+      &:active {
+        background: $primaryColor;
+      }
+    }
   }
+
+  .wrapper {
+    flex: 1;
+    overflow: hidden;
+  }
+
   .container {
-   
+    height: 100%;
     margin: auto;
-    background-color: $whiteColor;
+    background-color: #000;
+    overflow: auto;
   }
+
   .cards {
-    display: flex;
     flex-direction: column;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(7, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    @media screen and ( max-width: 1024px) {
+    grid-column-gap: 0;
+    grid-row-gap: 0;
+
+    @media screen and (max-width: 1024px) {
       display: grid;
       grid-template-columns: 1fr;
       grid-template-rows: repeat(14, 1fr);
       grid-column-gap: 16px;
       grid-row-gap: 16px;
     }
+
     .card {
       position: relative;
       display: inline-block;
       background-size: 100%;
       background-repeat: no-repeat;
       background-position: center;
-      background-color: #fff;
+      background-color: #000;
       overflow: hidden;
       transition: all 0.5s ease-in-out;
       cursor: pointer;
@@ -73,38 +104,45 @@ body {
         width: 100%;
         height: 100%;
         padding: 16px;
+
         .overlay {
           position: absolute;
-          left: 0px;
-          bottom: 0px;
+          left: 0;
+          bottom: 0;
           padding: 16px;
-          background-color: rgba($color: #000000, $alpha: 0.8);
+          background-color: rgba($color: #000, $alpha: 0.8);
           width: 100%;
           transition: all 0.5s ease-in-out;
           min-height: 20%;
+
           .title {
             text-decoration: none;
             font-weight: bold;
             margin-bottom: 1rem;
           }
+
           .description {
             color: $primaryColor;
           }
         }
       }
+
       &:hover {
-        box-shadow: 0px 0px 50px #999 inset;
+        box-shadow: 0 0 50px #999 inset;
         background-size: 120%;
+
         .content {
           .overlay {
             background-color: rgba($color: $secondaryColor, $alpha: 0.8);
             min-height: 40%;
             padding: 2rem;
+
             .title {
               color: #333;
-              font-size: 4rem;
-              
+              font-size: 3rem;
+              line-height: 3rem;
             }
+
             .description {
               color: #fff;
               font-size: 2rem;
@@ -114,7 +152,8 @@ body {
       }
     }
   }
-  .filter{
+
+  .filter {
     padding: 16px;
     width: 100%;
     border: none;
@@ -122,5 +161,125 @@ body {
     font-weight: bold;
     background: #222;
     color: #fff;
+  }
+
+  .single {
+    position: relative;
+    height: 100%;
+    display: flex;
+
+    .preview {
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+
+      .overlay_ {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        background-color: rgba($color: #000, $alpha: 0.6);
+        padding: 16px;
+      }
+    }
+
+    .tabs {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba($color: #000, $alpha: 0.6);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1;
+
+      a {
+        height: 60px;
+        color: #fff;
+        text-decoration: none;
+        padding: 0 16px;
+        flex: 1;
+        text-align: center;
+        font-weight: 400;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0.5;
+
+        &:hover {
+          opacity: 1;
+        }
+
+        &.active {
+          opacity: 1;
+        }
+      }
+    }
+
+    .details {
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow: hidden;
+
+      .content_ {
+        overflow: hidden;
+        padding: 60px 0 0 0;
+        height: 100%;
+
+        .info {
+          padding: 24px;
+          background-color: rgba($color: #000, $alpha: 0.8);
+          color: $whiteColor;
+          height: 100%;
+          overflow: auto;
+
+          .title_ {
+            margin-bottom: 16px;
+          }
+
+          .text {
+            font-size: 1.2rem;
+            max-width: 80%;
+            line-height: 2rem;
+
+            @media screen and (max-width: 1024px) {
+              font-size: 1rem;
+              max-width: 100%;
+              line-height: 1.2rem;
+              font-weight: normal;
+            }
+          }
+
+          .ingredients {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-wrap: wrap;
+
+            li {
+              display: flex;
+              justify-content: flex-start;
+              align-items: center;
+              width: auto;
+              margin: 8px;
+            }
+
+            .icon {
+              margin-right: 16px;
+            }
+          }
+        }
+      }
+    }
   }
 }

@@ -1,20 +1,21 @@
 @import '../variables.scss';
+
 .white {
   color: white;
 }
+
 .error {
   color: red;
 }
 
-.primary{
+.primary {
   color: $primaryColor;
 }
 
-.secondary{
+.secondary {
   color: $secondaryColor;
 }
 
-
-.dark{
+.dark {
   color: $darkColor;
 }

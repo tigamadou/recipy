@@ -10,8 +10,8 @@ import Error404 from '../components/Errors/Error404';
 
 const AppRouter = () => (
   <Switch>
-    <Route exact path="/recipe/:id" component={Single} />
-    <Route exact path="/category/:categoryName" component={Categories} />
+    <Route path="/recipe/:id" component={Single} />
+    <Route path="/category/:categoryName" component={Categories} />
     <Route exact path="/" component={Home} />
     <Route path="*" component={Error404} />
   </Switch>

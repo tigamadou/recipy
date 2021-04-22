@@ -1,14 +1,14 @@
 @import "../variables";
+
 .default {
   position: relative;
   width: 100%;
 }
 
 .withOverlay {
-
   .overlay {
     position: absolute;
-    bottom: 0px;
+    bottom: 0;
     width: 100%;
   }
 }

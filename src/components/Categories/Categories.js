@@ -49,7 +49,7 @@ const CategoriesComponent = ({
   };
 
   useEffect(() => {
-    setHeader({ title: `${categoryName}`, back: '/', search: true });
+    setHeader({ title: `${categoryName}`, back: '/' });
     init();
   }, [filter]);
 

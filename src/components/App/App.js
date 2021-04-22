@@ -7,7 +7,9 @@ import Header from '../Header/Header';
 const App = ({ header }) => (
   <div className="app">
     <Header data={header} />
-    <AppRouter />
+    <div className="wrapper">
+      <AppRouter />
+    </div>
   </div>
 );
 App.propTypes = {
