@@ -240,24 +240,29 @@ body {
           color: $whiteColor;
           height: 100%;
           overflow: auto;
+
           .row {
             display: grid;
             grid-template-columns: 1fr 2fr;
             grid-template-rows: 1fr;
             grid-column-gap: 24px;
-            grid-row-gap: 0px;
+            grid-row-gap: 0;
+
             @media screen and (max-width: 1024px) {
               display: block;
             }
-            div{
+
+            div {
               display: flex;
               flex-direction: column;
+
               @media screen and (max-width: 1024px) {
                 display: block;
                 padding-top: 16px;
               }
             }
           }
+
           .title_ {
             margin-bottom: 16px;
           }
@@ -278,7 +283,7 @@ body {
           .ingredients {
             list-style: none;
             padding: 0;
-            
+
             li {
               display: flex;
               justify-content: flex-start;
