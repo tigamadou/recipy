@@ -40,7 +40,7 @@ export const ingredientReducer = (previousState = [], action) => {
   }
 };
 
-export const headerReducer = (previousState = { back: false, title: 'Recipetly' }, action) => {
+export const headerReducer = (previousState = { back: false, title: 'Recipely' }, action) => {
   switch (action.type) {
     case SET_HEADER:
       return action.header;

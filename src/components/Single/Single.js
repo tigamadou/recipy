@@ -61,6 +61,39 @@ const Single = ({
       setHeader({ title: data.strCategory, back: `/category/${data.strCategory}` });
     }
   }, [data]);
+
+  const ingredientTab = () => (
+    <Fade>
+      <h3 className={`${Color.primary} ${Font.is_lg} title_`}>Ingredients</h3>
+      <ul className="ingredients">
+        {ingredients.map((e) => {
+          if (data[`strIngredient${e + 1}`] !== '' && data[`strIngredient${e + 1}`] !== null) {
+            return (
+              <li key={e}>
+                <FiCheckSquare className={`${Color.primary} ${Font.is_xl} icon`} />
+                <span className={`${Font.is_lg}`}>
+                  {data[`strIngredient${e + 1}`]}
+                  {' '}
+                  {data[`strMeasure${e + 1}`]}
+                </span>
+              </li>
+            );
+          }
+          return <></>;
+        })}
+      </ul>
+    </Fade>
+  );
+
+  const preparationTab = () => (
+    <Fade bottom>
+      <h3 className={`${Color.primary} ${Font.is_xl} title_`}>Preparation</h3>
+      <p className="text">
+        {data.strInstructions}
+      </p>
+    </Fade>
+  );
+
   return (
     <div className="container">
       {data
@@ -76,45 +109,6 @@ const Single = ({
               <div className="details" style={{ backgroundImage: `url(${data.strMealThumb})` }}>
 
                 <Switch>
-                  <Route path={`${path}/ingerdients`}>
-                    <Fade bottom>
-                      <div className="content_">
-                        <div className="info">
-                          <h3 className={`${Color.primary} ${Font.is_lg} title_`}>Ingredients</h3>
-                          <ul className="ingredients">
-                            {ingredients.map((e) => {
-                              if (data[`strIngredient${e + 1}`] !== '' && data[`strIngredient${e + 1}`] !== null) {
-                                return (
-                                  <li key={e}>
-                                    <FiCheckSquare className={`${Color.primary} ${Font.is_xl} icon`} />
-                                    <span className={`${Font.is_lg}`}>
-                                      {data[`strIngredient${e + 1}`]}
-                                      {' '}
-                                      {data[`strMeasure${e + 1}`]}
-                                    </span>
-                                  </li>
-                                );
-                              }
-                              return <></>;
-                            })}
-                          </ul>
-                        </div>
-                      </div>
-                    </Fade>
-                  </Route>
-                  <Route path={`${path}/preparation`}>
-                    <Fade bottom>
-                      <div className="content_">
-                        <div className="info">
-                          <h3 className={`${Color.primary} ${Font.is_xl} title_`}>Preparation</h3>
-                          <p className="text">
-                            {data.strInstructions}
-                          </p>
-
-                        </div>
-                      </div>
-                    </Fade>
-                  </Route>
                   <Route exact path={path}>
                     <Fade bottom>
                       <div className="preview">
@@ -125,6 +119,26 @@ const Single = ({
                       </div>
                     </Fade>
                   </Route>
+                  <Fade bottom>
+                    <div className="content_">
+                      <div className="info">
+                        <div className="row">
+                          <div>
+                            <img src={data.strMealThumb} alt={data.strMealThumb} />
+                          </div>
+                          <div>
+                            <Route path={`${path}/ingerdients`}>
+                              {ingredientTab()}
+                            </Route>
+                            <Route path={`${path}/preparation`}>
+                              {preparationTab()}
+                            </Route>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </Fade>
+
                 </Switch>
               </div>
             </div>

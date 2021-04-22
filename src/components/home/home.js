@@ -26,7 +26,7 @@ const Home = ({ datas, setDatas, setHeader }) => {
   };
 
   useEffect(() => {
-    setHeader({ title: 'Recipetly' });
+    setHeader({ title: 'Recipely' });
     if (datas.length < 1) {
       categories();
     }

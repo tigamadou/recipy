@@ -26,6 +26,6 @@ Header.propTypes = {
   data: PropTypes.instanceOf(Object),
 };
 Header.defaultProps = {
-  data: { back: false, title: 'Recipetly', search: false },
+  data: { back: false, title: 'Recipely', search: false },
 };
 export default Header;
