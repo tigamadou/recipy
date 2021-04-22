@@ -11,7 +11,7 @@ import CategoryFilter from '../CategoryFilter/CategoryFilter';
 const getDatas = (category, datas) => datas.filter((data) => data.strCategory === category);
 
 const CategoriesComponent = ({
-  datas, ingredients, SetRecipes, SetHeader,
+  datas, SetRecipes, SetHeader,
 }) => {
   const { categoryName } = useParams();
   const [recipes, SetRecipesLocal] = useState([]);
@@ -55,12 +55,18 @@ const CategoriesComponent = ({
 
   return (
     <>
-      <CategoryFilter setFilter={setFilter} filter={filter} ingredients={ingredients} />
-      <div className="container">
+      <CategoryFilter setFilter={setFilter} filter={filter} />
+      <div className="container" data-testid="categories">
         <div className="cards">
-          {recipes.map((data) => (
+          {(recipes && recipes.length > 0) && recipes.map((data) => (
             <Recipe data={data} key={data.idMeal} />
           ))}
+          {(recipes && recipes.length > 0)
+          && (
+          <div>
+            No data found!
+          </div>
+          )}
         </div>
       </div>
     </>
@@ -69,13 +75,11 @@ const CategoriesComponent = ({
 
 CategoriesComponent.propTypes = {
   datas: PropTypes.arrayOf(PropTypes.instanceOf(Object)),
-  ingredients: PropTypes.instanceOf(Array),
   SetRecipes: PropTypes.func,
   SetHeader: PropTypes.func,
 };
 CategoriesComponent.defaultProps = {
   datas: [],
-  ingredients: [],
   SetRecipes: null,
   SetHeader: null,
 };

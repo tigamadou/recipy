@@ -1,23 +1,26 @@
 import React from 'react';
+import {
+  MemoryRouter as Router,
+  Route,
+} from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { render, screen } from '@testing-library/react';
 import renderer from 'react-test-renderer';
-import { render, screen } from './test-utils';
 import Categories from './Categories';
+import storeReducer from '../../redux/store';
+
+const store = storeReducer();
 
 describe('Categories component tests', () => {
-  test('renders Categories component ', () => {
-    render(<Categories />, {
-      initialState: [{
-        idCategory: '1', strCategory: 'Beef', strCategoryDescription: 'description', strCategoryThumb: 'thumb',
-      }],
-    });
+  it('renders Categories component ', () => {
+    render(<Provider store={store}><Router><Route><Categories /></Route></Router></Provider>);
     // eslint-disable-next-line no-unused-expressions
-    expect(screen.getByText('Category')).toBeInTheDocument;
+    expect(screen.getByTestId('categories')).toBeInTheDocument;
   });
 
   test('should match with snapshot', () => {
     const tree = renderer
-      .create(<Categories />)
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+      .create(<Provider store={store}><Router><Route><Categories /></Route></Router></Provider>);
+    expect(tree.toJSON()).toMatchSnapshot();
   });
 });

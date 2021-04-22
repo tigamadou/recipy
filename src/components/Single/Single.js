@@ -69,7 +69,7 @@ const Single = ({
         {ingredients.map((e) => {
           if (data[`strIngredient${e + 1}`] !== '' && data[`strIngredient${e + 1}`] !== null) {
             return (
-              <li key={e}>
+              <li key={`strIngredient${e + 1}`}>
                 <FiCheckSquare className={`${Color.primary} ${Font.is_xl} icon`} />
                 <span className={`${Font.is_lg}`}>
                   {data[`strIngredient${e + 1}`]}

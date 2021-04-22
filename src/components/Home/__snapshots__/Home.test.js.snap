@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home component tests should match with snapshot 1`] = `
+Array [
+  <div
+    className="container"
+    data-testid="home"
+  >
+    <div
+      className="cards"
+    />
+  </div>,
+  " ",
+]
+`;

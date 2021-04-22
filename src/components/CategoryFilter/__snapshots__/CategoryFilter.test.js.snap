@@ -1,12 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CategoryFilter component tests should match with snapshot 1`] = `
-<div>
+<div
+  id="categorySearchFilter"
+>
   <input
     className="filter"
     onChange={[Function]}
     placeholder="Type the recipe name"
-    value=""
+    value="Beef"
   />
 </div>
 `;

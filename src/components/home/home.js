@@ -34,7 +34,7 @@ const Home = ({ datas, SetDatas, SetHeader }) => {
 
   return (
     <>
-      <div className="container">
+      <div className="container" data-testid="home">
         <div className="cards">
 
           {datas.map((category) => (

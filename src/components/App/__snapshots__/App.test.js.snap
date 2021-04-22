@@ -20,6 +20,7 @@ exports[`App connected component should match with snapshot 1`] = `
   >
     <div
       className="container"
+      data-testid="home"
     >
       <div
         className="cards"

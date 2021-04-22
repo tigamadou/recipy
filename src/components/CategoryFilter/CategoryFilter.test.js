@@ -4,15 +4,16 @@ import renderer from 'react-test-renderer';
 import CategoryFilter from './CategoryFilter';
 
 describe('CategoryFilter component tests', () => {
+  const setFilter = jest.fn();
   test('renders CategoryFilter component ', () => {
-    render(<CategoryFilter />);
+    render(<CategoryFilter filter="Beef" setFilter={setFilter} />);
     // eslint-disable-next-line no-unused-expressions
-    expect(screen.getByText('Filtrer by')).toBeInTheDocument;
+    expect(screen.getByPlaceholderText('Type the recipe name')).toBeInTheDocument;
   });
 
   test('should match with snapshot', () => {
     const tree = renderer
-      .create(<CategoryFilter />)
+      .create(<CategoryFilter filter="Beef" setFilter={setFilter} />)
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
