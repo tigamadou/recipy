@@ -94,6 +94,23 @@ const Single = ({
     </Fade>
   );
 
+  const renderTab = (name) => (
+    <div className="content_">
+      <div className="info">
+        <div className="row">
+          <div>
+            <img src={data.strMealThumb} alt={data.strMealThumb} />
+          </div>
+          <div>
+            {name === 'ingredients'
+              ? (ingredientTab())
+              : (preparationTab())}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
   return (
     <div className="container">
       {data
@@ -103,7 +120,7 @@ const Single = ({
 
               <div className="tabs">
                 <NavLink className={`${Color.white} ${Font.is_sm}`} to={`${url}/`}>Preview</NavLink>
-                <NavLink className={`${Color.white} ${Font.is_sm}`} to={`${url}/ingerdients/`}>Ingredients</NavLink>
+                <NavLink className={`${Color.white} ${Font.is_sm}`} to={`${url}/ingredients/`}>Ingredients</NavLink>
                 <NavLink className={`${Color.white} ${Font.is_sm}`} to={`${url}/preparation/`}>Preparation</NavLink>
               </div>
               <div className="details" style={{ backgroundImage: `url(${data.strMealThumb})` }}>
@@ -119,25 +136,12 @@ const Single = ({
                       </div>
                     </Fade>
                   </Route>
-                  <Fade bottom>
-                    <div className="content_">
-                      <div className="info">
-                        <div className="row">
-                          <div>
-                            <img src={data.strMealThumb} alt={data.strMealThumb} />
-                          </div>
-                          <div>
-                            <Route path={`${path}/ingerdients`}>
-                              {ingredientTab()}
-                            </Route>
-                            <Route path={`${path}/preparation`}>
-                              {preparationTab()}
-                            </Route>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </Fade>
+                  <Route path={`${path}/ingredients`}>
+                    {renderTab('ingredients')}
+                  </Route>
+                  <Route path={`${path}/preparation`}>
+                    {renderTab('preparation')}
+                  </Route>
 
                 </Switch>
               </div>
