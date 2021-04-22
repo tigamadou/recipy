@@ -19,11 +19,8 @@ App.defaultProps = {
   header: null,
 };
 
-const mapStateToProps = (state) => {
-  console.log(state.header);
-  return {
-    header: state.header,
-  };
-};
+const mapStateToProps = (state) => ({
+  header: state.header,
+});
 
 export default connect(mapStateToProps, null)(App);

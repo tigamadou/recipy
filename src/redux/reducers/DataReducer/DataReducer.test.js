@@ -1,5 +1,3 @@
-// eslint-disable-next-line no-unused-vars
-import React from 'react';
 import DataReducer from './DataReducer';
 import * as types from '../../actions/types';
 

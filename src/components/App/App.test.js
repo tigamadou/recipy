@@ -2,12 +2,26 @@ import React from 'react';
 import {
   BrowserRouter as Router,
 } from 'react-router-dom';
-import { render, screen } from './test-utils';
+
+import { Provider } from 'react-redux';
+import { render, screen } from '@testing-library/react';
+import renderer from 'react-test-renderer';
 import App from './App';
+import storeReducer from '../../redux/store';
+
+const store = storeReducer();
 
 describe('App connected component', () => {
-  it('should render with given state from Redux store', () => {
-    render(<Router><App /></Router>, { initialState: { header: { title: 'Recipely', back: false } } });
-    expect(screen.getByText('Recipely')).toBeInTheDocument();
+  test('renders App component ', () => {
+    render(<Provider store={store}><Router><App /></Router></Provider>);
+    // eslint-disable-next-line no-unused-expressions
+    expect(screen.getByText('Recipely')).toBeInTheDocument;
+  });
+
+  test('should match with snapshot', () => {
+    const tree = renderer
+      .create(<Provider store={store}><Router><App /></Router></Provider>)
+      .toJSON();
+    expect(tree).toMatchSnapshot();
   });
 });
