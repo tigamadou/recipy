@@ -10,7 +10,7 @@ import Card from '../../styles/modules/Card.module.scss';
 
 const Recipe = ({ data }) => (
   <Fade>
-    <div className={`card ${Card.withOverlay}`} style={{ backgroundImage: `url(${data.strMealThumb})` }}>
+    <div className={`card cover ${Card.withOverlay}`} style={{ backgroundImage: `url(${data.strMealThumb})` }}>
       <Link to={`/recipe/${data.idMeal}`}>
         <div className="content">
           <div className="overlay">
