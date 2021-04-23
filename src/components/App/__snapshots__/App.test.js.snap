@@ -11,7 +11,7 @@ exports[`App connected component should match with snapshot 1`] = `
       className="title white is_sm"
     >
       <h1>
-        Recipely
+        Recipy
       </h1>
     </div>
   </header>

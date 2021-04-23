@@ -15,7 +15,7 @@ describe('App connected component', () => {
   test('renders App component ', () => {
     render(<Provider store={store}><Router><App /></Router></Provider>);
     // eslint-disable-next-line no-unused-expressions
-    expect(screen.getByText('Recipely')).toBeInTheDocument;
+    expect(screen.getByText('Recipy')).toBeInTheDocument;
   });
 
   test('should match with snapshot', () => {

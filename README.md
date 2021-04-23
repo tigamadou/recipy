@@ -1,4 +1,3 @@
-# recipetly App
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
@@ -13,10 +12,10 @@
 <br />
 <p align="center">
   
-  <h3 align="center">Recipetly</h3>
+  <h3 align="center">Recipy</h3>
 
   <p align="center">
-    A simple front-end of an application thatfor browsing recipes
+    A Catalogue of recipes.
     <br />
     <a href="#about-the-project"><strong>Explore the docs »</strong></a>
     <br />
@@ -55,7 +54,9 @@ This is a Catalogue of Recipes  built for [Microverse Program](https://microvers
 
 ### Built With
 * [React](https://reactjs.org/)
+* [React Hooks](https://reactjs.org/)
 * [Redux](https://reactjs.org/)
+* [CSS Module]()
 
 
 
