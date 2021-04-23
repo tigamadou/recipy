@@ -4,7 +4,7 @@
 body {
   padding: 0;
   margin: 0;
-  background-color: #000;
+  background-color: #f1f1f1;
 
   * {
     box-sizing: border-box;
@@ -95,7 +95,6 @@ body {
       cursor: pointer;
       height: 75vh;
       filter: grayscale(60%);
-      box-shadow: 0 0 50px #333 inset;
 
       .content {
         position: absolute;
