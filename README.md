@@ -9,7 +9,7 @@
 ![](https://github.com/tigamadou/recipetly/workflows/Linters/badge.svg)
 
 
-<!-- PROJECT LOGO -->
+![screenshot](./screenshot.png)
 <br />
 <p align="center">
   
@@ -51,9 +51,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-<!-- ![screenshot](./screenshot.png) -->
-
-This is a receipt catalogue  built for [Microverse Program](https://microverse.org)  capstone project.
+This is a Catalogue of Recipes  built for [Microverse Program](https://microverse.org)  capstone project.
 
 ### Built With
 * [React](https://reactjs.org/)
@@ -98,8 +96,11 @@ npm install / yarn
 npm start 'or' yarn start
 ```
 
+### Runing Tests
 
-
+```sh
+npm test
+```
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -140,6 +141,8 @@ Project Link: [https://github.com/tigamadou/recipetly](https://github.com/tigama
 * [Creact React App](https://getbootstrap.com)
 * [Eslint](https://eslint.org/)
 * [GitHub Actions](https://github.com/features/actions)
+* [Marc-Antoine Roy](https://www.behance.net/gallery/11351281/NomNom)
+* [Themealdb](https://www.themealdb.com/api.php)
 
 
 
