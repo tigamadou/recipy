@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Recipe component tests should match with snapshot 1`] = `
+<div
+  className="card cover withOverlay"
+  style={
+    Object {
+      "backgroundImage": "url(thumb)",
+    }
+  }
+>
+  <a
+    href="/recipe/1"
+    onClick={[Function]}
+  >
+    <div
+      className="content"
+    >
+      <div
+        className="overlay"
+      >
+        <div>
+          <h2
+            className="title white is_xl"
+          >
+            Meal name
+          </h2>
+        </div>
+      </div>
+    </div>
+  </a>
+</div>
+`;

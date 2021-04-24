@@ -1,0 +1,13 @@
+@import '../variables.scss';
+
+.black {
+  background: #000;
+}
+
+.secondary {
+  background: $secondaryColor;
+}
+
+.dark {
+  background: $darkColor;
+}

@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Error404 component tests should match with snapshot 1`] = `
+<div
+  className="container"
+>
+  404
+</div>
+`;

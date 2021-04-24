@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Single component tests should match with snapshot 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="single"
+  >
+    <div
+      className="tabs"
+    >
+      <a
+        aria-current="page"
+        className="white is_sm active"
+        href="//"
+        onClick={[Function]}
+        style={Object {}}
+      >
+        Preview
+      </a>
+      <a
+        aria-current={null}
+        className="white is_sm"
+        href="//ingredients/"
+        onClick={[Function]}
+      >
+        Ingredients
+      </a>
+      <a
+        aria-current={null}
+        className="white is_sm"
+        href="//preparation/"
+        onClick={[Function]}
+      >
+        Preparation
+      </a>
+    </div>
+    <div
+      className="details"
+      style={
+        Object {
+          "backgroundImage": "url(https://www.themealdb.com/images/media/meals/sytuqu1511553755.jpg)",
+        }
+      }
+    >
+      <div
+        className="preview"
+      >
+        <div
+          className="overlay_"
+        >
+          <h1
+            className="white is_default"
+          >
+            Beef and Mustard Pie
+          </h1>
+          <div
+            className="primary"
+          >
+            British
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

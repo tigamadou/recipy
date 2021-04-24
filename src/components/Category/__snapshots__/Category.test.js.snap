@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Category component tests should match with snapshot 1`] = `
+<div
+  className="card withOverlay"
+  style={
+    Object {
+      "backgroundImage": "url(thumb)",
+    }
+  }
+>
+  <a
+    href="/category/testCategory"
+    onClick={[Function]}
+  >
+    <div
+      className="content"
+    >
+      <div
+        className="overlay"
+      >
+        <div>
+          <h2
+            className="title white is_xl"
+          >
+            testCategory
+          </h2>
+        </div>
+        <div
+          className="description"
+        >
+          <p
+            className="is_sm"
+          >
+            Find all our
+            testCategory
+             
+            recipes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </a>
+</div>
+`;
