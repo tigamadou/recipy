@@ -5,12 +5,7 @@ exports[`Single component tests should match with snapshot 1`] = `
   className="container"
 >
   <div
-    className="react-reveal single"
-    style={
-      Object {
-        "opacity": undefined,
-      }
-    }
+    className="single"
   >
     <div
       className="tabs"
@@ -50,12 +45,7 @@ exports[`Single component tests should match with snapshot 1`] = `
       }
     >
       <div
-        className="react-reveal preview"
-        style={
-          Object {
-            "opacity": undefined,
-          }
-        }
+        className="preview"
       >
         <div
           className="overlay_"

@@ -11,7 +11,6 @@ import {
 import { FiCheckSquare } from 'react-icons/fi';
 import { toast } from 'react-toastify';
 import { connect } from 'react-redux';
-import Fade from 'react-reveal/Fade';
 import { CreateRecipe, SetHeader } from '../../redux/actions/index';
 import Color from '../../styles/modules/Colors.module.scss';
 import Font from '../../styles/modules/Font.module.scss';
@@ -63,7 +62,7 @@ const Single = ({
   }, [data]);
 
   const ingredientTab = () => (
-    <Fade>
+    <>
       <h3 className={`${Color.primary} ${Font.is_lg} title_`}>Ingredients</h3>
       <ul className="ingredients">
         {ingredients.map((e) => {
@@ -82,16 +81,16 @@ const Single = ({
           return <React.Fragment key={`strIngredient${e + 1}`} />;
         })}
       </ul>
-    </Fade>
+    </>
   );
 
   const preparationTab = () => (
-    <Fade bottom>
+    <>
       <h3 className={`${Color.primary} ${Font.is_xl} title_`}>Preparation</h3>
       <p className="text">
         {data.strInstructions}
       </p>
-    </Fade>
+    </>
   );
 
   const renderTab = (name) => (
@@ -115,38 +114,34 @@ const Single = ({
     <div className="container">
       {data
         && (
-          <Fade>
-            <div className="single">
+        <div className="single">
 
-              <div className="tabs">
-                <NavLink className={`${Color.white} ${Font.is_sm}`} to={`${url}/`}>Preview</NavLink>
-                <NavLink className={`${Color.white} ${Font.is_sm}`} to={`${url}/ingredients/`}>Ingredients</NavLink>
-                <NavLink className={`${Color.white} ${Font.is_sm}`} to={`${url}/preparation/`}>Preparation</NavLink>
-              </div>
-              <div className="details" style={{ backgroundImage: `url(${data.strMealThumb})` }}>
+          <div className="tabs">
+            <NavLink className={`${Color.white} ${Font.is_sm}`} to={`${url}/`}>Preview</NavLink>
+            <NavLink className={`${Color.white} ${Font.is_sm}`} to={`${url}/ingredients/`}>Ingredients</NavLink>
+            <NavLink className={`${Color.white} ${Font.is_sm}`} to={`${url}/preparation/`}>Preparation</NavLink>
+          </div>
+          <div className="details" style={{ backgroundImage: `url(${data.strMealThumb})` }}>
 
-                <Switch>
-                  <Route exact path={path}>
-                    <Fade bottom>
-                      <div className="preview">
-                        <div className="overlay_">
-                          <h1 className={`${Color.white} ${Font.is_default}`}>{data.strMeal}</h1>
-                          <div className={`${Color.primary}`}>{data.strArea}</div>
-                        </div>
-                      </div>
-                    </Fade>
-                  </Route>
-                  <Route path={`${path}/ingredients`}>
-                    {renderTab('ingredients')}
-                  </Route>
-                  <Route path={`${path}/preparation`}>
-                    {renderTab('preparation')}
-                  </Route>
+            <Switch>
+              <Route exact path={path}>
+                <div className="preview">
+                  <div className="overlay_">
+                    <h1 className={`${Color.white} ${Font.is_default}`}>{data.strMeal}</h1>
+                    <div className={`${Color.primary}`}>{data.strArea}</div>
+                  </div>
+                </div>
+              </Route>
+              <Route path={`${path}/ingredients`}>
+                {renderTab('ingredients')}
+              </Route>
+              <Route path={`${path}/preparation`}>
+                {renderTab('preparation')}
+              </Route>
 
-                </Switch>
-              </div>
-            </div>
-          </Fade>
+            </Switch>
+          </div>
+        </div>
         )}
     </div>
   );

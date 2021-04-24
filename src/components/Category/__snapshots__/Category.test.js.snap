@@ -2,11 +2,10 @@
 
 exports[`Category component tests should match with snapshot 1`] = `
 <div
-  className="react-reveal card withOverlay"
+  className="card withOverlay"
   style={
     Object {
       "backgroundImage": "url(thumb)",
-      "opacity": undefined,
     }
   }
 >
