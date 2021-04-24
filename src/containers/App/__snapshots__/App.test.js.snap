@@ -8,7 +8,7 @@ exports[`App connected component should match with snapshot 1`] = `
     className="header dark"
   >
     <div
-      className="title white is_sm"
+      className="title secondary is_sm"
     >
       <h1>
         Recipy

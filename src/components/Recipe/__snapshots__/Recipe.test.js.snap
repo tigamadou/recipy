@@ -2,7 +2,7 @@
 
 exports[`Recipe component tests should match with snapshot 1`] = `
 <div
-  className="react-reveal card withOverlay"
+  className="react-reveal card cover withOverlay"
   style={
     Object {
       "backgroundImage": "url(thumb)",
