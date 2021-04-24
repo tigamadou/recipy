@@ -1,5 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
 import renderer from 'react-test-renderer';
 import {
   BrowserRouter as Router,
@@ -15,8 +16,7 @@ const data = {
 describe('Recipe component tests', () => {
   test('renders Recipe component ', () => {
     render(<Router><Recipe data={data} /></Router>);
-    // eslint-disable-next-line no-unused-expressions
-    expect(screen.getByText(data.strMeal)).toBeInTheDocument;
+    expect(screen.getByText(data.strMeal)).toBeInTheDocument();
   });
 
   test('should match with snapshot', () => {

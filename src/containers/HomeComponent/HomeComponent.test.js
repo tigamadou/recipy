@@ -1,5 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
 import renderer from 'react-test-renderer';
 import { Provider } from 'react-redux';
 import storeReducer from '../../redux/store';
@@ -14,8 +15,7 @@ describe('Home component tests', () => {
         {' '}
       </Provider>,
     );
-    // eslint-disable-next-line no-unused-expressions
-    expect(screen.getByTestId('home')).toBeInTheDocument;
+    expect(screen.getByTestId('home')).toBeInTheDocument();
   });
 
   test('should match with snapshot', () => {

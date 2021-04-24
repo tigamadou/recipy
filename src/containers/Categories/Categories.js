@@ -17,8 +17,9 @@ const CategoriesComponent = ({
   const [recipes, SetRecipesLocal] = useState([]);
   const [filter, setFilter] = useState('');
 
-  // eslint-disable-next-line max-len
-  const filterRecipes = (datas) => datas.filter((data) => data.strMeal.toLowerCase().indexOf(filter.toLowerCase()) > -1);
+  const filterRecipes = (datas) => datas.filter(
+    (data) => data.strMeal.toLowerCase().indexOf(filter.toLowerCase()) > -1,
+  );
 
   const getRecipes = () => {
     Axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${categoryName}`)

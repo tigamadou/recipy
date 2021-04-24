@@ -4,6 +4,7 @@ import {
   BrowserRouter as Router,
 } from 'react-router-dom';
 import renderer from 'react-test-renderer';
+import '@testing-library/jest-dom/extend-expect';
 import Category from './Category';
 
 describe('Category component tests', () => {
@@ -14,8 +15,7 @@ describe('Category component tests', () => {
   };
   test('renders Category component ', () => {
     render(<Router><Category category={data} /></Router>);
-    // eslint-disable-next-line no-unused-expressions
-    expect(screen.getByText('testCategory')).toBeInTheDocument;
+    expect(screen.getByText('testCategory')).toBeInTheDocument();
   });
 
   test('should match with snapshot', () => {

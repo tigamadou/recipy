@@ -1,5 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
 import renderer from 'react-test-renderer';
 import {
   BrowserRouter as Router,
@@ -69,16 +70,25 @@ const data = {
 };
 describe('Single component tests', () => {
   test('renders single component ', () => {
-    // eslint-disable-next-line max-len
-    render(<Provider store={store}><Router><Route><Single element={data} /></Route></Router></Provider>);
-    // eslint-disable-next-line no-unused-expressions
-    expect(screen.getByText(data.strMeal)).toBeInTheDocument;
+    render(
+      <Provider store={store}>
+        <Router>
+          <Route><Single element={data} /></Route>
+        </Router>
+      </Provider>,
+    );
+    expect(screen.getByText(data.strMeal)).toBeInTheDocument();
   });
 
   test('should match with snapshot', () => {
     const tree = renderer
-      // eslint-disable-next-line max-len
-      .create(<Provider store={store}><Router><Route><Single element={data} /></Route></Router></Provider>)
+      .create(
+        <Provider store={store}>
+          <Router>
+            <Route><Single element={data} /></Route>
+          </Router>
+        </Provider>,
+      )
       .toJSON();
     expect(tree).toMatchSnapshot();
   });

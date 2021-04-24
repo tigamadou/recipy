@@ -1,5 +1,3 @@
-// eslint-disable-next-line no-unused-vars
-import React from 'react';
 import RecipeReducer from './RecipeReducer';
 import * as types from '../../actions/types';
 
