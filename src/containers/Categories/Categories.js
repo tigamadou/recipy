@@ -59,15 +59,17 @@ const CategoriesComponent = ({
       <CategoryFilter setFilter={setFilter} filter={filter} />
       <div className="container" data-testid="categories">
         <div className="cards">
-          {(recipes && recipes.length > 0) && recipes.map((data) => (
-            <Recipe data={data} key={data.idMeal} />
-          ))}
           {(recipes && recipes.length > 0)
-          && (
-          <div>
-            No data found!
-          </div>
-          )}
+            ? (
+              recipes.map((data) => (
+                <Recipe data={data} key={data.idMeal} />
+              ))
+            )
+            : (
+              <div className="card no_result">
+                No result found!
+              </div>
+            )}
         </div>
       </div>
     </>
