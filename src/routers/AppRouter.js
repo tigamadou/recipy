@@ -3,9 +3,9 @@ import {
   Switch,
   Route,
 } from 'react-router-dom';
-import Home from '../components/HomeComponent/HomeComponent';
-import Categories from '../components/Categories/Categories';
-import Single from '../components/Single/Single';
+import Home from '../containers/HomeComponent/HomeComponent';
+import Categories from '../containers/Categories/Categories';
+import Single from '../containers/Single/Single';
 import Error404 from '../components/Errors/Error404';
 
 const AppRouter = () => (

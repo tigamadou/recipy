@@ -5,8 +5,8 @@ import { useParams } from 'react-router-dom';
 import Axios from 'axios';
 import { toast } from 'react-toastify';
 import { SetRecipes, SetHeader } from '../../redux/actions/index';
-import Recipe from '../Recipe/Recipe';
-import CategoryFilter from '../CategoryFilter/CategoryFilter';
+import Recipe from '../../components/Recipe/Recipe';
+import CategoryFilter from '../../components/CategoryFilter/CategoryFilter';
 
 const getDatas = (category, datas) => datas.filter((data) => data.strCategory === category);
 

@@ -4,7 +4,7 @@ import Axios from 'axios';
 import { toast } from 'react-toastify';
 import { connect } from 'react-redux';
 import { SetDatas, SetHeader } from '../../redux/actions/index';
-import Category from '../Category/Category';
+import Category from '../../components/Category/Category';
 
 const Home = ({ datas, SetDatas, SetHeader }) => {
   const categories = () => {
